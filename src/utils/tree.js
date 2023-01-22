@@ -24,14 +24,14 @@ function Tree(Data, { // Data is either tabular (array of objects) or hierarchy 
     title, // given a node d, returns its hover text
     link, // given a node d, its link (if any)
     linkTarget = "_blank", // the target attribute for links (if any)
-    width = 640, // outer width, in pixels
-    height = 400, // outer height, in pixels
+    width = 800, // outer width, in pixels
+    height = 500, // outer height, in pixels
     margin = 60, // shorthand for margins
-    marginTop = margin, // top margin, in pixels
+    marginTop = 300, // top margin, in pixels
     marginRight = margin, // right margin, in pixels
     marginBottom = margin, // bottom margin, in pixels
     marginLeft = 300, // left margin, in pixels
-    radius = Math.min(width - marginLeft - marginRight, height - marginTop - marginBottom) / 2, // outer radius
+    radius = Math.min(width - marginLeft - marginRight, height - marginTop - marginBottom) / 1.2, // outer radius
     r = 2, // radius of nodes
     padding = 1, // horizontal padding for first and last column
     fill = "#999", // fill for nodes
@@ -65,7 +65,7 @@ function Tree(Data, { // Data is either tabular (array of objects) or hierarchy 
     tree().size([2 * Math.PI, radius]).separation(separation)(root);
   
     const svg = d3.create("svg")
-        .attr("viewBox", [-marginLeft - radius, -marginTop - radius, width, height])
+        .attr("viewBox", [-marginLeft - radius, -marginTop - radius, width + 500 , height + 500])
         .attr("width", width)
         .attr("height", height)
         .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
