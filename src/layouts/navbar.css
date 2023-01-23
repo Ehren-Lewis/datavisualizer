@@ -1,0 +1,38 @@
+
+.nav .nav-anchor {
+    color: white; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.nav-wrapper {
+    display: flex;
+  }
+
+
+.nav {
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    background-color: black;
+}
+
+.nav .nav-anchor::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: orange;
+    transition: width .4s ease-in;          
+  }
+  
+.nav .nav-anchor:hover::after {
+    width: 100%;
+  }
+ .nav .nav-anchor:hover {
+    transition: .4s;
+  }
+
+ 
