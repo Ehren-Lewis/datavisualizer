@@ -3,11 +3,12 @@ import data from "./test.json";
 
 import rd3 from 'react-d3-library';
 
-const parentDiv = document.getElementsByClassName("contiainer")
+const parentDiv = document.getElementsByClassName("container")
 
 var width = window.innerWidth;
 var height = window.innerHeight ;
   
+
 
 // Copyright 2022 Observable, Inc.
 // Released under the ISC license.
@@ -123,6 +124,5 @@ function Tree(Data, { // Data is either tabular (array of objects) or hierarchy 
     margin: 50
 })
 
-console.log(chart)
 
   export default chart;

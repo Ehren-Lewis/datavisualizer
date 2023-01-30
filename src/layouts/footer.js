@@ -35,19 +35,10 @@ const Footer = () => {
                     
                 </div>
 
-                {/* <div className="col-sm-6 col-md-3 mt-3">
-                <ul>
-                    <li className="list-title">FOLLOW</li>
-                    <li>@PrecisionMachinery on Instagram</li>
-                    <li>@PrecisionMachinery on Twitter</li>
-                    <li>@PrecisionMachinery on Linkedin</li>
-                    <li>@PrecisionMachinery on Facebook</li>
-
-                </ul>
-                    
-                </div> */}
             </div>
+            
             <div className="mt-4"></div>
+
             <div className="row">
                 <div className="col-sm-12 col-md-3 copyright d-flex justify-content-md-end">
                     <p><span>&copy;</span>DataFyer All Rights Reserved</p>

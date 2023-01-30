@@ -1,0 +1,14 @@
+{
+
+    "bookRadialGraph": {
+        "title": "Book Information",
+        "info": "Radial tree visualizing 211 books, sorted by genre then subgenre",
+        "imgdescription": "Radial tree graph of book data",
+        "imageLink":"../assets/images/radialtreebooks.png",
+        "url":"/graphs/booksradialtree"
+    }
+
+
+
+
+}
