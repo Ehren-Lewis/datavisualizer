@@ -1,0 +1,56 @@
+.list-title {
+    text-decoration: underline;
+        color: rgb(202, 149, 80);
+    }
+    
+    li {
+        text-decoration: none;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    
+    ul {
+        text-decoration: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-color {
+        background-color: black;
+        color: rgb(216, 216, 216)
+    }
+    
+    li:not(.list-title) {
+        cursor: pointer;
+    }
+    
+    
+    .copyright {
+        font-size: .75rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        
+    }
+    
+     /* .copyright a::before {
+        content: "\00a0|\00a0";
+    } */
+    
+    
+    .copyright :nth-child(2)::before {
+        content: "\00a0|\00a0";
+    
+    }
+    
+    .copyright button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        align-self:flex-start;
+    }

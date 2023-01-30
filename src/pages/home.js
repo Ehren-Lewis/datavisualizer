@@ -1,7 +1,10 @@
 import * as d3 from "d3"
+
+
 import chart from "../utils/tree.js";
 import { useEffect, useRef } from "react";
-import NavBar from "../layouts/navbar.js";
+import Headliners from "../components/headlines/headlinecontainer.js";
+import About from "../components/about/about.js";
 const Home = () => {
 
     const svg=useRef(null)
@@ -20,10 +23,12 @@ const Home = () => {
     return (
         <>
             <div>
-                <NavBar />
-        
+                <Headliners />
+                <About />
             </div>
         </>
+
+
     )
 }
 
