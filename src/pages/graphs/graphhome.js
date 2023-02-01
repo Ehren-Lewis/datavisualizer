@@ -1,8 +1,7 @@
 import graphinformation from "../../data/graphdata.json"
 import radialTreeImg from "../../assets/images/radialtreebooks.png"
 import {LinkContainer} from "react-router-bootstrap"
-
-
+import './graphhome.css'
 const GraphHome = () => {
 
     return (
@@ -24,7 +23,7 @@ const GraphHome = () => {
                                     </div>
                                     <p className='card-text'>{ele.info}</p>
                                     <LinkContainer to={ele.url}>
-                                        <a className="stretched-link" href="#"></a>
+                                        <a className="stretched-link travel-link py-2" href="#">View Graph</a>
                                     </LinkContainer>
                                 </div>
                                 
