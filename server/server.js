@@ -18,19 +18,23 @@ var express = require("express");
 
 const app = express();
 
-const port = 3000;
+const port = 3001;
 
 app.listen(port, () => {
-    console.log(`listening on ${port}`)
+    console.log(`listening on http://localhost:${port}`)
+    console.log(`quick data: http://localhost:${port}/data_information`)
 })
 
 
+app.get("/", (req, res) => {
+    res.send(JSON.stringify("sauccess"))
+})
 
 app.get("/data_information", (req, res) => {
     var childProcessSpawn = require("child_process").spawn;
     var process = childProcessSpawn('python', ['./test.py']);
     process.stdout.on('data', (data) => {
-        console.log(data.toString())
+        // console.log(data.toString())
         res.send(data.toString())
     })
 })

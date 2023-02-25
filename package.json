@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "apollo-server-express": "^3.11.1",
+    "concurrently": "^7.6.0"
+  },
+  "name": "datafyre",
+  "description": "Data visualization: A developer can use data visualization libraries such as D3.js, Chart.js, or Highcharts to create interactive charts, graphs, and maps to display data.\r # datavisualizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && node server.js \" \"cd client && npm start\"",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ehren-Lewis/datavisualizer.git"
+  },
+  "author": "Ehren Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ehren-Lewis/datavisualizer/issues"
+  },
+  "homepage": "https://github.com/Ehren-Lewis/datavisualizer#readme"
+}
