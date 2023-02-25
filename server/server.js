@@ -14,15 +14,19 @@
 // // console.log(await randomInt.create_number())
 // python.exit()
 
-var express = require("express");
+const express = require("express");
+const { ApolloServer } = require("apollo-server-express");
+const path = require('path');
+const PORT = process.env.PORT || 3001;
+// db connection
 
 const app = express();
-
-const port = 3001;
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 app.listen(port, () => {
-    console.log(`listening on http://localhost:${port}`)
-    console.log(`quick data: http://localhost:${port}/data_information`)
+    console.log(`listening on http://localhost:${PORT}`)
+    console.log(`quick data: http://localhost:${PORT}/data_information`)
 })
 
 
