@@ -40,7 +40,18 @@ app.get("/data_information", (req, res) => {
     })
 })
 
+const { Data } = require("./models/books.js");
+
 db.once("open", () => {
+
+    // const curr = db.collection("DataSets").find({value: "Books"})
+
+    // Data.find({}).then( (val, err) => {
+    //     err ? console.log(err) : console.log(data)
+        
+    // })
+    console.log(Data);
+
     app.listen(PORT, () => {
         console.log(`listening on http://localhost:${PORT}`)
         console.log(`quick data: http://localhost:${PORT}/data_information`)
