@@ -5,6 +5,8 @@ require("dotenv").config();
 describe("BookData", () => {
     let connection;
     let db;
+    let dataSchema;
+    let DataModel;
 
     beforeAll( async () => {
         mongoose.connect(
@@ -16,6 +18,14 @@ describe("BookData", () => {
         )
 
         db = mongoose.connection;
+
+        dataSchema = new Schema({
+            value: {type: String},
+            children: {type: Array}
+        })
+                
+        DataModel = model("datasets", dataSchema);
+
     });
 
     afterAll( async () => {
@@ -24,19 +34,24 @@ describe("BookData", () => {
 
     it('should pull information from the datasets collection', async () => {
 
-        const dataSchema = new Schema({
-            value: {type: String},
-            children: {type: Array}
-        })
-                
-        const DataModel = model("datasets", dataSchema);
-
-        const dataValue = DataModel.findById("63fd79db0efde9084e07f3c2", (err, data) => {
-            return data
+        const dataValue = await DataModel.findById("63fd79db0efde9084e07f3c2", (err, data) => {
+            if (data) {
+                return data
+            }
          });
-
          
         expect(dataValue).toBeDefined();
+    })
+
+     // switch to .thens
+    it("should pull up the infrmation by using the findby method", async () => {
+        const dataInformation = await DataModel.find({value: "Bodosdks"}, (err, data) => {
+            if (data) {
+                return data
+            }
+        })
+
+        expect(dataInformation).toBeDefined();
     })
 
 

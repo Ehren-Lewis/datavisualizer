@@ -1,4 +1,15 @@
 // testing mongoose schema first
 
-const { Schema } = require("mongoose");
+const { BookModel } = require("../models")
 
+
+
+const resolvers = {
+    Query: {
+        books: async () => {
+            return await BookModel.findOne({value: "Books"})
+        }
+    }
+}
+
+module.exports = resolvers;

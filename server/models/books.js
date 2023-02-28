@@ -1,18 +1,16 @@
 const { Schema, model } = require("mongoose");
 
 
-const dataSchema = new Schema({
+const bookSchema = new Schema({
     value: {type: String},
     children: {type: Array}
 })
 
 
 
-const DataModel = model("datasets", dataSchema);
+const BookModel = model("datasets", bookSchema);
 
 
-DataModel.findById("63fd79db0efde9084e07f3c2", (err, data) => {
-    err ? console.log(err) : console.log(data)
-})
+export default BookModel;
 
 // db.close()
