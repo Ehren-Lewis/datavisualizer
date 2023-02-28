@@ -11,4 +11,5 @@ mongoose.connect(
 
 mongoose.set("strictQuery", "true")
 
+console.log(mongoose.connection);
 module.exports = mongoose.connection;
