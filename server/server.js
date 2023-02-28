@@ -18,16 +18,13 @@ const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require('path');
 const PORT = process.env.PORT || 3001;
-// db connection
+const db = require("./config/connection.js");
+
 
 const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-app.listen(port, () => {
-    console.log(`listening on http://localhost:${PORT}`)
-    console.log(`quick data: http://localhost:${PORT}/data_information`)
-})
 
 
 app.get("/", (req, res) => {
@@ -41,4 +38,12 @@ app.get("/data_information", (req, res) => {
         // console.log(data.toString())
         res.send(data.toString())
     })
+})
+
+db.once("open", () => {
+    app.listen(PORT, () => {
+        console.log(`listening on http://localhost:${PORT}`)
+        console.log(`quick data: http://localhost:${PORT}/data_information`)
+    })
+    
 })
