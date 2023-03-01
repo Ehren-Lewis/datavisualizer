@@ -19,26 +19,26 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require('path');
 const PORT = process.env.PORT || 3001;
 const db = require("./config/connection.js");
-
+const cors = require("cors");
 const { typeDefs, resolvers } = require("./schemas");
 
 const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-
+app.use(cors())
 
 
 // app.get("/", (req, res) => {
 //     res.send(JSON.stringify("sauccess"))
 // })
 
-// app.get("/data_information", (req, res) => {
-//     var childProcessSpawn = require("child_process").spawn;
-//     var process = childProcessSpawn('python', ['./test.py']);
-//     process.stdout.on('data', (data) => {
-//         res.send(data.toString())
-//     })
-// })
+app.get("/data_information", (req, res) => {
+    var childProcessSpawn = require("child_process").spawn;
+    var process = childProcessSpawn('python', ['./test.py']);
+    process.stdout.on('data', (data) => {
+        res.send(data.toString())
+    })
+})
 
 const server = new ApolloServer({
     typeDefs,
@@ -46,20 +46,20 @@ const server = new ApolloServer({
     introspection: true
 })
 
-const startApollogServer = async (typeDefs, resolvers) => {
-    await server.start();
-    server.applyMiddleware({ app });
+// const startApollogServer = async (typeDefs, resolvers) => {
+    // await server.start();
+    // server.applyMiddleware({ app });
 
     db.once("open", () => {
 
 
         app.listen(PORT, () => {
             console.log(`listening on http://localhost:${PORT}`)
-            console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`)
+            // console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`)
         })
         
     })
-}
+// }
 
-startApollogServer(typeDefs, resolvers);
+// startApollogServer(typeDefs, resolvers);
 

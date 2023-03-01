@@ -2,6 +2,7 @@ import graphinformation from "../../data/graphdata.json"
 import radialTreeImg from "../../assets/images/radialtreebooks.png"
 import {LinkContainer} from "react-router-bootstrap"
 import './graphhome.css'
+import React from "react"
 const GraphHome = () => {
 
     return (

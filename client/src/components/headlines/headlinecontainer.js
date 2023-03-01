@@ -1,6 +1,7 @@
 
 import  RadialTreeImage from "../../assets/images/radialtreebooks.png";
 import "./headlines.css"
+import React from 'react';
 
 const Headliners = () => {
 

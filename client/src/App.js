@@ -4,6 +4,7 @@ import NavBar from "./layouts/navbar.js";
 import Footer from "./layouts/footer.js";
 import GraphHome from "./pages/graphs/graphhome.js";
 import RadialTree from "./pages/graphs/booksradialtree.js";
+import React from "react";
 
 function App() {
   return (

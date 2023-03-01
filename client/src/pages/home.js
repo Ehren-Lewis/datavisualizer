@@ -2,7 +2,7 @@
 
 
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Headliners from "../components/headlines/headlinecontainer.js";
 import About from "../components/about/about.js";
 const Home = () => {
