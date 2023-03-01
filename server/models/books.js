@@ -11,6 +11,4 @@ const bookSchema = new Schema({
 const BookModel = model("datasets", bookSchema);
 
 
-export default BookModel;
-
-// db.close()
+module.exports = BookModel;

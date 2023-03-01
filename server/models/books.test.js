@@ -45,14 +45,21 @@ describe("BookData", () => {
 
      // switch to .thens
     it("should pull up the infrmation by using the findby method", async () => {
-        const dataInformation = await DataModel.find({value: "Bodosdks"}, (err, data) => {
+        const dataInformation = await DataModel.find({value: "Books"}, (err, data) => {
             if (data) {
                 return data
             }
         })
 
         expect(dataInformation).toBeDefined();
+    
+    // DataModel.find({value: "Books"}).then( data => {
+    //     expect(data).toBeDefined();
+    // })
+
     })
+
+    
 
 
 

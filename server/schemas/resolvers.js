@@ -6,7 +6,7 @@ const { BookModel } = require("../models")
 
 const resolvers = {
     Query: {
-        books: async () => {
+        bookData: async () => {
             return await BookModel.findOne({value: "Books"})
         }
     }

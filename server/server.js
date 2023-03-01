@@ -20,6 +20,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001;
 const db = require("./config/connection.js");
 
+const { typeDefs, resolvers } = require("./schemas");
 
 const app = express();
 app.use(express.urlencoded({extended: false}));
@@ -27,34 +28,38 @@ app.use(express.json());
 
 
 
-app.get("/", (req, res) => {
-    res.send(JSON.stringify("sauccess"))
+// app.get("/", (req, res) => {
+//     res.send(JSON.stringify("sauccess"))
+// })
+
+// app.get("/data_information", (req, res) => {
+//     var childProcessSpawn = require("child_process").spawn;
+//     var process = childProcessSpawn('python', ['./test.py']);
+//     process.stdout.on('data', (data) => {
+//         res.send(data.toString())
+//     })
+// })
+
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    introspection: true
 })
 
-app.get("/data_information", (req, res) => {
-    var childProcessSpawn = require("child_process").spawn;
-    var process = childProcessSpawn('python', ['./test.py']);
-    process.stdout.on('data', (data) => {
-        // console.log(data.toString())
-        res.send(data.toString())
-    })
-})
+const startApollogServer = async (typeDefs, resolvers) => {
+    await server.start();
+    server.applyMiddleware({ app });
 
-const { Data } = require("./models/books.js");
+    db.once("open", () => {
 
-db.once("open", () => {
 
-    // const curr = db.collection("DataSets").find({value: "Books"})
-
-    // Data.find({}).then( (val, err) => {
-    //     err ? console.log(err) : console.log(data)
+        app.listen(PORT, () => {
+            console.log(`listening on http://localhost:${PORT}`)
+            console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`)
+        })
         
-    // })
-    console.log(Data);
-
-    app.listen(PORT, () => {
-        console.log(`listening on http://localhost:${PORT}`)
-        console.log(`quick data: http://localhost:${PORT}/data_information`)
     })
-    
-})
+}
+
+startApollogServer(typeDefs, resolvers);
+
